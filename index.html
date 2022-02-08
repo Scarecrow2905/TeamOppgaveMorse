@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morsekode</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app"></div>
+
+<script>
+        
+    //Modell
+    const norsk = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ' ', 'Æ', 'Ø', 'Å'];
+    const morse = [ '.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..', ' ', '·−·−', '−−−·', '·−−·−']; 
+    let brukerInput = '';
+    let brukerOutput = '';
+    let morseSmud = '';
+    let tilKnapp = '';
+
+    
+
+
+    //View
+    view();
+    function view(){
+        document.getElementById("app").innerHTML = `
+
+        <input type="text" placeholder="YOLO" value="" onchange="bruker(this.value)"/> 
+        <button onclick="trykket">Trykk meg for å oversette</button> <br>
+        <div>${brukerInput}</div>
+        <br>
+        <div>${brukerOutput}</div>
+        
+        `;
+    }
+
+    //Controller
+    function trykket(){
+     
+        view();
+
+    }
+
+    function bruker(verdi){
+        brukerInput += verdi;
+        brukerInput = brukerInput.toUpperCase();
+        for (var i = 0; i < brukerInput.length; i++) {
+            var morseIndex = norsk.indexOf(brukerInput[i])
+            let morseVerdi = morse[morseIndex]
+            morseSmud += morseVerdi;
+
+            brukerOutput = morseSmud + '\n';
+        view()
+        }
+        
+
+        
+        
+        //console.log('er', morse[3])
+        console.log('er:', morseSmud)
+        console.log('bruker', brukerInput[0])
+    }
+    
+    
+
+</script>
+</body>
+</html>
