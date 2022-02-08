@@ -29,40 +29,40 @@
         document.getElementById("app").innerHTML = `
 
         <input type="text" placeholder="YOLO" value="" onchange="bruker(this.value)"/> 
-        <button onclick="trykket">Trykk meg for å oversette</button> <br>
+        <button onclick="trykket">Jeg har ingen funksjon. La meg være</button> <br>
         <div>${brukerInput}</div>
         <br>
         <div>${brukerOutput}</div>
-        
         `;
     }
 
     //Controller
-    function trykket(){
-     
-        view();
-
-    }
+    
 
     function bruker(verdi){
         brukerInput += verdi;
         brukerInput = brukerInput.toUpperCase();
-        for (var i = 0; i < brukerInput.length; i++) {
-            var morseIndex = norsk.indexOf(brukerInput[i])
+        for (let i = 0; i < brukerInput.length; i++) {
+            let morseIndex = norsk.indexOf(brukerInput[i])
             let morseVerdi = morse[morseIndex]
             morseSmud += morseVerdi;
-
             brukerOutput = morseSmud + '\n';
-        view()
-        }
-        
+           trykket();
+    }}
 
+        
+        function trykket(){
+            brukerInput = brukerInput.toLowerCase();
+            brukerOutput = morseSmud + '\n';
+
+         view;
+        }
         
         
         //console.log('er', morse[3])
         console.log('er:', morseSmud)
         console.log('bruker', brukerInput[0])
-    }
+    
     
     
 
