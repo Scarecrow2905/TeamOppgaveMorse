@@ -18,52 +18,79 @@
     let brukerInput = '';
     let brukerOutput = '';
     let morseSmud = '';
-    let tilKnapp = '';
-
-    
-
-
+    let brukerBruk = [];
+    let single = '';
+    let dobble = '';
+    let bruker = '';
+    let tegn = ', ! ; : ? @^_'; //(',','?',':', ';','(',')','*','!','+','.');
+                
     //View
     view();
     function view(){
         document.getElementById("app").innerHTML = `
 
-        <input type="text" placeholder="YOLO" value="" onchange="bruker(this.value)"/> 
-        <button onclick="trykket">Jeg har ingen funksjon. La meg være</button> <br>
-        <div>${brukerInput}</div>
+        <input type="text" placeholder="Skriv inn og oversett til Morse" value="" onchange="bruker = this.value"/> 
+        <button id="btn1" onclick="trykket()">Trykk meg!</button> <br>
+        <div id="div1">${brukerBruk}</div>
         <br>
-        <div>${brukerOutput}</div>
+        <div id="div2">${brukerOutput}</div><br>
+        <button id="btn" onclick="nullstill()">Nullstill tekst</button>
+
         `;
     }
 
     //Controller
     
 
-    function bruker(verdi){
-        brukerInput += verdi;
+    function trykket(){
+        brukerInput = bruker;
+        console.log('er: ', brukerInput)
+        single = brukerInput.charAt(0);
+        single = single.toUpperCase();
+        dobble = bruker.slice(1);
+        dobble = dobble.toLowerCase();
+        enig = single + dobble;
+        brukerBruk += enig + '<br>';
+  
         brukerInput = brukerInput.toUpperCase();
         for (let i = 0; i < brukerInput.length; i++) {
             let morseIndex = norsk.indexOf(brukerInput[i])
             let morseVerdi = morse[morseIndex]
-            morseSmud += morseVerdi;
-            brukerOutput = morseSmud + '\n';
-           trykket();
-    }}
-
-        
-        function trykket(){
-            brukerInput = brukerInput.toLowerCase();
-            brukerOutput = morseSmud + '\n';
-
-         view;
+            morseSmud += morseVerdi + ' ';
+            brukerOutput = morseSmud;
+            if (bruker.includes('?' + ',' + '!')){
+                alert('Ugyldig tegn: , . / ! ? () : + ; *');
+                break;
+            }
+        };   
+ 
+            view();
         }
+        function nullstill(){
+            brukerBruk = [];
+            single = '';
+           
+            dobble = '';
+            brukerOutput = '';
+            morseSmud = '';
+
+            view();
         
-        
-        //console.log('er', morse[3])
-        console.log('er:', morseSmud)
-        console.log('bruker', brukerInput[0])
-    
-    
+    }
+/* if (bruker.includes(',' || '.' || '/' || '!' || '?' || ':' || '()')){
+            alert('Ugyldig tegn: , . / ! ? () :');
+        } else {*/
+
+     /* if (brukerInput.indexOf(tegn) >= 0) {
+                alert("Ugyldig tegn: , . / ! ? () : + ; *");
+                
+            };*/
+
+/*for (let a = 0; a < tegn.length; a++) {
+               if( brukerBruk.includes(tegn[a])) {
+                    alert('Ugyldig tegn: , . / ! ? () : + ; *');
+                    
+                    break;*/
     
 
 </script>

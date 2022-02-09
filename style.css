@@ -1,3 +1,53 @@
 body {
-    background: linear-gradient(80deg, tomato, blue);
+    background: linear-gradient(100deg, tomato, blue);
+}
+#div1 {
+    width:40vW;
+    height:40vh ;
+    float:left;
+    background-color: white;
+    border: 2px  solid black;
+    text-align: center;
+    margin:2rem;
+    margin-left:5rem;
+    border-radius: 10px;
+
+}
+#div2 {
+    width:40vW;
+    height:40vh ;
+    float: left;
+    background-color: white;
+    border: 2px  solid black;
+    text-align: center;
+    margin:1rem;
+    border-radius: 10px;
+
+
+}
+input{
+    width:80%;
+    height: 5rem;
+    margin-left:7rem;
+    float:left;
+    text-align: center;
+    border-radius: 10px;
+}
+#btn1 {
+    margin-left:34rem;
+    border-radius: 10px;
+    margin-top:10px;
+
+
+}
+#btn {
+    width:20vw;;
+    margin-left:30rem;
+    clear:left;
+    text-align: center;
+    border-radius: 10px;
+
+}
+button:hover {
+    background-color:dimgrey;
 }
